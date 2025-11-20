@@ -77,10 +77,19 @@
 - [3.3 Steering管理戦略](docs/chapter3/steering-management.md) - チーム設定の管理
 - [3.4 コンテキスト・メモリ管理](docs/chapter3/context-memory-management.md) - 大規模開発のテクニック
 
+### 🔧 機能詳細リファレンス
+- [Autonomy Modes完全ガイド](docs/features/autonomy-modes.md) - AutopilotとSupervisedモードの詳細
+- [Chat Context完全ガイド](docs/features/chat-context.md) - 6つのコンテキスト機能の活用
+- [Specsワークフロー完全ガイド](docs/features/specs-workflow.md) - 要件→設計→タスクの詳細プロセス
+- [Steering高度な使用方法ガイド](docs/features/steering-advanced.md) - Steeringの高度な機能
+- [Hooks完全ガイド](docs/features/hooks-guide.md) - イベントトリガー自動化
+- [MCP設定完全ガイド](docs/features/mcp-configuration.md) - MCP設定の詳細
+
 ### 🛠️ サポートリソース
 - [よくある問題](docs/troubleshooting/common-issues.md) - トラブルシューティングガイド
 - [FAQ](docs/troubleshooting/faq.md) - よくある質問と回答
 - [サンプルプロジェクト](examples/) - 完成版のコード例
+- [MCP設定例](examples/mcp-examples/) - MCP設定例集
 - [テンプレート](templates/) - 設定ファイルのテンプレート
 
 ---
@@ -267,6 +276,7 @@ Pull Requestやフィードバックをお気軽にお送りください！
 
 ---
 
-**📝 最終更新**: 2025年7月  
-**🏷️ バージョン**: v1.0  
+**📝 最終更新**: 2025年1月  
+**🏷️ バージョン**: v2.0  
+**📖 公式ドキュメント**: [kiro.dev/docs](https://kiro.dev/docs/)  
 **📧 お問い合わせ**: [GitHub Issues](https://github.com/yoshidashingo/getting-started-with-kiro/issues) でお気軽にどうぞ

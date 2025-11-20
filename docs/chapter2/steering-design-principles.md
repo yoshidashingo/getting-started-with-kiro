@@ -86,9 +86,13 @@ inclusion: always
 
 ファイルの適用条件を設定：
 
-- **`inclusion: always`**: 常に適用
+- **`inclusion: always`**: 常に適用（デフォルト）
 - **`inclusion: fileMatch`**: 特定ファイルにマッチした時のみ適用
+  - `fileMatchPattern`と組み合わせて使用（例: `'*.tsx'`, `'src/**/*.js'`）
 - **`inclusion: manual`**: 手動で指定した時のみ適用
+  - チャットで`#`を使って明示的に参照する必要がある
+
+> 💡 **公式ドキュメント**: Steeringの詳細は [kiro.dev/docs](https://kiro.dev/docs/) を参照してください
 
 ## ステップ2: プロジェクト基本原則の定義
 
@@ -218,7 +222,7 @@ src/
 
 ### 3.2 条件付き適用の設定
 
-特定のファイルタイプにのみ適用する場合：
+特定のファイルタイプにのみ適用する場合、`fileMatch`と`fileMatchPattern`を使用します：
 
 ```markdown
 ---
@@ -227,6 +231,8 @@ fileMatchPattern: '*.tsx'
 ---
 
 # React コンポーネント規約
+
+このSteeringファイルは、.tsxファイルを読み込んだ時のみ適用されます。
 
 ## コンポーネント設計原則
 
@@ -351,7 +357,9 @@ export const useUser = (id: string) => {
 
 ### 5.1 外部ドキュメントの参照
 
-Steeringファイルから他のファイルを参照：
+Steeringファイルから他のファイルを参照する機能を使うと、OpenAPI仕様やGraphQLスキーマなどの外部ファイルを低摩擦で活用できます：
+
+**構文**: `#[[file:<relative_file_name>]]`
 
 ```markdown
 ---
@@ -365,11 +373,20 @@ inclusion: always
 詳細なAPI仕様は以下を参照：
 #[[file:docs/api-spec.yaml]]
 
+このファイルの内容がSteeringコンテキストに自動的に含まれます。
+
 ## 実装例
 
 GraphQLスキーマの定義：
 #[[file:src/schema/user.graphql]]
+
+## 設計パターン
+
+共通の設計パターン集：
+#[[file:docs/patterns/common-patterns.md]]
 ```
+
+> 💡 **活用のコツ**: 大きな仕様ファイルやスキーマ定義を直接Steeringファイルに書く代わりに、ファイル参照を使うことで管理が容易になります
 
 ### 5.2 設定ファイルの参照
 

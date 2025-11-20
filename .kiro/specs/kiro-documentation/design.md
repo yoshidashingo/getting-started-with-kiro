@@ -2,45 +2,55 @@
 
 ## Overview
 
-Kiro解説ドキュメントは、初心者向けの包括的な学習リソースとして設計されます。ドキュメントは段階的な学習アプローチを採用し、基本概念から実践的な使用方法まで体系的に構成されます。日本語での分かりやすい説明と実践的なサンプルを組み合わせることで、効果的な学習体験を提供します。
+Kiro解説ドキュメントは、https://kiro.dev/docs/ の最新情報に基づいた、初心者向けの包括的な学習リソースとして設計されます。ドキュメントは段階的な学習アプローチを採用し、基本概念から実践的な使用方法、高度な機能（Specs、Steering、Hooks、MCP）まで体系的に構成されます。日本語での分かりやすい説明と最新の実践的なサンプルを組み合わせることで、効果的な学習体験を提供します。
 
 ## Architecture
 
 ### ドキュメント構造
 ```
 docs/
-├── README.md                 # メインエントリーポイント
-├── getting-started/          # 入門ガイド
-│   ├── introduction.md       # Kiroの紹介
-│   ├── installation.md       # インストールガイド
-│   └── first-steps.md        # 最初のステップ
-├── features/                 # 機能詳細
-│   ├── autopilot-mode.md     # Autopilotモード
-│   ├── supervised-mode.md    # Supervisedモード
-│   ├── chat-context.md       # チャットコンテキスト
-│   ├── steering.md           # Steering機能
-│   ├── specs.md              # Spec機能
-│   ├── hooks.md              # Hooks機能
-│   └── mcp.md                # MCP機能
-├── tutorials/                # ハンズオンチュートリアル
-│   ├── basic-project.md      # 基本プロジェクト作成
-│   ├── code-generation.md    # コード生成演習
-│   └── advanced-features.md  # 高度な機能活用
-├── examples/                 # サンプルコード
-│   ├── simple-webapp/        # シンプルなWebアプリ
-│   ├── api-client/           # APIクライアント
-│   └── automation-scripts/   # 自動化スクリプト
+├── chapter1/                 # 第1章: はじめてのKiro
+│   ├── kiro-introduction.md  # Kiroの基礎解説（最新版）
+│   ├── tetris-tutorial.md    # テトリス作成チュートリアル
+│   └── playwright-mcp-testing.md  # Playwright MCPテスト
+├── chapter2/                 # 第2章: 本格的なアプリ開発
+│   ├── ai-consultation.md    # AI相談とプロジェクト企画
+│   ├── aws-mcp-setup.md      # AWS MCP設定
+│   ├── steering-design-principles.md  # Steering設計原則
+│   ├── pattern-language.md   # パターン言語解説
+│   ├── design-review-implementation.md  # 設計・レビュー・CI/CD
+│   ├── implementation-testing.md  # 実装・テスト・自動化
+│   └── git-pr-workflow.md    # Git連携・PR・E2E
+├── chapter3/                 # 第3章: チーム開発
+│   ├── team-development-setup.md  # チーム開発セットアップ
+│   ├── steering-management.md     # Steering管理戦略
+│   └── context-memory-management.md  # コンテキスト・メモリ管理
+├── features/                 # 機能詳細リファレンス（新規）
+│   ├── autonomy-modes.md     # AutopilotとSupervisedモード
+│   ├── chat-context.md       # Chat Context詳細
+│   ├── specs-workflow.md     # Specsワークフロー詳細
+│   ├── steering-advanced.md  # Steering高度な使用方法
+│   ├── hooks-guide.md        # Hooks完全ガイド
+│   └── mcp-configuration.md  # MCP設定完全ガイド
+├── examples/                 # サンプルプロジェクト
+│   ├── tetris-backup/        # テトリスゲーム完成版
+│   ├── webapp-backup/        # Webアプリ完成版
+│   └── mcp-examples/         # MCP設定例集（新規）
+├── templates/                # テンプレート集
+│   ├── mcp/                  # MCP設定テンプレート
+│   ├── steering/             # Steeringテンプレート
+│   └── cicd/                 # CI/CD設定テンプレート
 └── troubleshooting/          # トラブルシューティング
     ├── common-issues.md      # よくある問題
     └── faq.md                # FAQ
 ```
 
 ### 学習フロー設計
-1. **導入フェーズ**: Kiroの概要と基本概念の理解
-2. **セットアップフェーズ**: インストールと初期設定
-3. **基本操作フェーズ**: 基本的な機能の習得
-4. **実践フェーズ**: ハンズオン演習による実践的学習
-5. **応用フェーズ**: 高度な機能の活用
+1. **導入フェーズ（第1章）**: Kiroの概要と基本概念の理解、簡単なアプリ作成体験
+2. **実践フェーズ（第2章）**: 本格的なアプリ開発、Specs/Steering/Hooks/MCPの活用
+3. **協働フェーズ（第3章）**: チーム開発環境の構築と管理
+4. **リファレンスフェーズ**: 各機能の詳細な技術情報の参照
+5. **継続学習フェーズ**: 公式ドキュメントとの連携、最新情報の追跡
 
 ## Components and Interfaces
 
@@ -55,13 +65,18 @@ docs/
 - **形式**: Markdown形式、図解付き
 
 #### 2. 機能解説ドキュメント
-- **目的**: 各機能の詳細な説明と使用方法
+- **目的**: 各機能の最新の詳細な説明と使用方法
 - **内容**:
-  - 機能の概要と目的
-  - 具体的な使用方法
-  - 実践的なサンプルコード
-  - ベストプラクティス
-- **形式**: 機能別のMarkdownファイル
+  - 機能の概要と目的（公式ドキュメント準拠）
+  - Autopilot/Supervisedモードの違いと使い分け
+  - Chat Context（#File、#Folder、#Problems、#Terminal、#Git Diff、#Codebase）の活用
+  - Specsワークフロー（要件→設計→タスク）の詳細
+  - Steeringファイルの構造とfront-matter設定
+  - Hooksのイベントトリガー設定
+  - MCP設定（.kiro/settings/mcp.json、uvx使用方法）
+  - 実践的なサンプルコードと設定例
+  - ベストプラクティスと推奨事項
+- **形式**: 機能別のMarkdownファイル、公式ドキュメントへのリンク
 
 #### 3. チュートリアルドキュメント
 - **目的**: 段階的な実践演習の提供

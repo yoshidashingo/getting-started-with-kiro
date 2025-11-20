@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "aws-docs": {
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "read_documentation",
+        "search_documentation"
+      ]
+    },
+    "playwright": {
+      "command": "uvx",
+      "args": ["mcp-server-playwright@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "github": {
+      "command": "uvx",
+      "args": ["mcp-server-github@latest"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "search_repositories",
+        "get_file_contents"
+      ]
+    }
+  }
+}

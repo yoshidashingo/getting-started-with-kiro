@@ -150,3 +150,109 @@
   - 「前へ」「次へ」ナビゲーションを全ページに追加
   - 学習進捗を追跡できる仕組みを実装
   - _Requirements: 1.3, 3.1, 4.3_
+
+- [ ] 9. 最新情報への更新（https://kiro.dev/docs/ 準拠）
+- [x] 9.1 第1章の最新化
+  - `docs/chapter1/kiro-introduction.md`を最新の公式情報に基づいて更新
+  - Autopilot/Supervisedモードの説明を追加・更新
+  - Chat Contextの最新機能（#File、#Folder、#Problems、#Terminal、#Git Diff、#Codebase）を追加
+  - Specsワークフローの最新の説明を反映
+  - _Requirements: 1.1, 1.2, 2.1, 2.4, 5.1, 6.1_
+
+- [x] 9.2 第2章の最新化
+  - 各ドキュメントを公式ドキュメントの最新情報に基づいて更新
+  - Steering設定の最新仕様（front-matter、inclusion設定）を反映
+  - MCP設定の最新方法（.kiro/settings/mcp.json、uvx使用）を更新
+  - Hooks設定の最新情報を追加
+  - _Requirements: 2.1, 2.2, 2.3, 6.2, 6.3, 6.4_
+
+- [x] 9.3 第3章の最新化
+  - チーム開発関連ドキュメントを最新情報に更新
+  - ワークスペースレベルとユーザーレベルの設定の違いを明確化
+  - MCP設定のマージ方法と優先順位を説明
+  - _Requirements: 2.1, 6.4, 7.1, 7.2, 7.3_
+
+- [ ] 10. 機能詳細リファレンスの作成
+- [x] 10.1 Autonomy Modesリファレンスの作成
+  - `docs/features/autonomy-modes.md`を作成
+  - AutopilotとSupervisedモードの詳細な違いと使い分けを解説
+  - 各モードの特徴、利点、使用シーンを説明
+  - _Requirements: 2.1, 2.4, 6.1_
+
+- [x] 10.2 Chat Contextリファレンスの作成
+  - `docs/features/chat-context.md`を作成
+  - #File、#Folder、#Problems、#Terminal、#Git Diff、#Codebaseの詳細な使用方法を解説
+  - 各コンテキスト機能の活用例とベストプラクティスを提供
+  - _Requirements: 2.1, 2.2, 2.5, 6.1_
+
+- [x] 10.3 Specsワークフローリファレンスの作成
+  - `docs/features/specs-workflow.md`を作成
+  - 要件定義→設計→タスク実装の3段階ワークフローを詳細に解説
+  - 各段階でのベストプラクティスと注意点を説明
+  - userInputツールの使用方法とレビュープロセスを解説
+  - _Requirements: 2.1, 2.2, 6.1, 6.2_
+
+- [x] 10.4 Steering高度な使用方法ガイドの作成
+  - `docs/features/steering-advanced.md`を作成
+  - .kiro/steering/*.mdの詳細な構造を解説
+  - front-matter設定（inclusion: always/fileMatch/manual）の使い分けを説明
+  - ファイル参照（#[[file:<relative_file_name>]]）の使用方法を解説
+  - 条件付きインクルージョンとfileMatchPatternの活用方法を提供
+  - _Requirements: 2.1, 2.3, 6.2, 7.2_
+
+- [x] 10.5 Hooks完全ガイドの作成
+  - `docs/features/hooks-guide.md`を作成
+  - Agent Hooksの概念とイベントトリガーの仕組みを解説
+  - 保存時のテスト実行、翻訳更新、スペルチェックなどの実例を提供
+  - Hooks UIの使用方法とコマンドパレットからの操作を説明
+  - _Requirements: 2.1, 2.2, 2.3, 6.3_
+
+- [x] 10.6 MCP設定完全ガイドの作成
+  - `docs/features/mcp-configuration.md`を作成
+  - .kiro/settings/mcp.jsonと~/.kiro/settings/mcp.jsonの違いと使い分けを解説
+  - ワークスペースレベルとユーザーレベルの設定マージ方法を説明
+  - uvxコマンドの使用方法とインストール手順を提供
+  - autoApprove設定とdisabled設定の使い方を解説
+  - MCPサーバーのテスト方法（設定確認前の直接テスト推奨）を説明
+  - _Requirements: 2.1, 2.2, 6.4, 6.5, 7.3_
+
+- [ ] 11. MCP設定例集の作成
+- [x] 11.1 MCP設定例の実装
+  - `examples/mcp-examples/`ディレクトリを作成
+  - AWS Documentation MCP、Playwright MCP、その他の一般的なMCP設定例を提供
+  - 各設定例に日本語での説明とトラブルシューティングを追加
+  - _Requirements: 2.2, 3.1, 6.4, 6.5_
+
+- [ ] 12. テンプレートの更新
+- [x] 12.1 MCP設定テンプレートの更新
+  - `templates/mcp/`の設定テンプレートを最新仕様に更新
+  - uvx使用例、autoApprove設定、disabled設定を含める
+  - _Requirements: 2.2, 6.4_
+
+- [x] 12.2 Steeringテンプレートの更新
+  - `templates/steering/`のテンプレートを最新仕様に更新
+  - front-matter設定例（inclusion、fileMatchPattern）を追加
+  - ファイル参照の使用例を含める
+  - _Requirements: 2.1, 6.2_
+
+- [ ] 13. トラブルシューティングの更新
+- [x] 13.1 よくある問題ドキュメントの更新
+  - `docs/troubleshooting/common-issues.md`を最新情報に基づいて更新
+  - MCP関連の問題（uvxインストール、サーバー接続など）を追加
+  - Steering設定の問題を追加
+  - _Requirements: 3.3, 6.4, 6.5_
+
+- [x] 13.2 FAQの更新
+  - `docs/troubleshooting/faq.md`を最新情報に基づいて更新
+  - AutopilotとSupervisedモードの違いに関する質問を追加
+  - MCP設定に関する質問を追加
+  - Steering管理に関する質問を追加
+  - _Requirements: 3.3, 6.1, 6.4, 7.2_
+
+- [ ] 14. メインREADMEの最終更新
+- [x] 14.1 README.mdの最新化
+  - 機能詳細リファレンスセクションへのリンクを追加
+  - 最新の学習フローと推奨パスを反映
+  - 公式ドキュメント（https://kiro.dev/docs/）へのリンクを適切に配置
+  - 最終更新日とバージョン情報を更新
+  - _Requirements: 1.1, 1.2, 2.1, 5.1_

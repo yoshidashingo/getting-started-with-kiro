@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "server-name": {
+      "command": "uvx",
+      "args": ["package-name@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

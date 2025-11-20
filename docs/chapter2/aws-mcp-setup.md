@@ -65,6 +65,8 @@ uvxはuvに含まれるツールで、MCPサーバーの実行に使用します
 uvx --help
 ```
 
+> 💡 **重要**: `uvx`は`uv`に含まれているため、`uv`をインストールすれば自動的に使用できます。`uvx install <package>`のようなコマンドは存在しません。`uvx`は指定されたパッケージを自動的にダウンロードして実行します。
+
 ### 1.3 Kiroの設定フォルダ確認
 
 MCP設定ファイルを配置するフォルダを確認：
@@ -76,6 +78,8 @@ ls -la .kiro/settings/
 # ユーザー設定フォルダ（存在しない場合は作成される）
 ls -la ~/.kiro/settings/
 ```
+
+> 💡 **設定の優先順位**: 両方の設定ファイルが存在する場合、設定はマージされ、ワークスペースレベルの設定が優先されます（サーバー名が競合する場合）。つまり、期待されるMCPサーバーがワークスペースに定義されていない場合、ユーザーレベルで定義されている可能性があります。
 
 ## ステップ2: MCP設定ファイルの作成
 
@@ -116,13 +120,19 @@ AWS Documentation MCPを設定したいです。
 各設定項目の意味：
 
 - **`awslabs.aws-documentation-mcp-server`**: MCPサーバーの識別名（公式パッケージ名を使用）
-- **`command`**: 実行コマンド（uvx）
-- **`args`**: MCPサーバーのパッケージ名とバージョン
+- **`command`**: 実行コマンド（`uvx`）
+- **`args`**: MCPサーバーのパッケージ名とバージョン（`@latest`で最新版を使用）
 - **`env`**: 環境変数
-  - `FASTMCP_LOG_LEVEL`: ログレベルの設定
+  - `FASTMCP_LOG_LEVEL`: ログレベルの設定（`ERROR`, `WARNING`, `INFO`, `DEBUG`）
   - `AWS_DOCUMENTATION_PARTITION`: AWSパーティション（`aws`または`aws-cn`）
-- **`disabled`**: サーバーの有効/無効
-- **`autoApprove`**: 自動承認するツール名のリスト（空の場合は手動承認）
+- **`disabled`**: サーバーの有効/無効（`true`で無効化、`false`で有効化）
+- **`autoApprove`**: 自動承認するツール名のリスト
+  - 空の配列`[]`の場合は全て手動承認
+  - ツール名を追加すると、そのツールは自動承認される
+
+> 💡 **autoApproveの活用**: 頻繁に使用する安全なツールを`autoApprove`リストに追加することで、開発効率が向上します
+
+> 📖 **公式ドキュメント**: MCPの詳細は [kiro.dev/docs](https://kiro.dev/docs/) を参照してください
 
 ## ステップ3: 設定の適用と確認
 
@@ -140,30 +150,34 @@ cat .kiro/settings/mcp.json
 Kiroで設定を反映させる方法：
 
 1. **自動反映**: 設定ファイル変更時に自動的に反映
-2. **手動反映**: Kiroを再起動
+2. **手動反映**: Kiroを再起動（不要な場合が多い）
 3. **MCP Server view**: Kiro内のMCP Server viewから再接続
+   - Kiro機能パネルの「MCP Server」ビューを開く
+   - 再接続したいサーバーを選択して再接続
+
+> 💡 **便利な機能**: 設定変更時にサーバーは自動的に再接続されるため、通常はKiroを再起動する必要はありません。コマンドパレットから「MCP」を検索して関連コマンドを見つけることもできます。
 
 ### 3.3 接続状態の確認
+
+> 💡 **MCPテストのベストプラクティス**: 公式ドキュメントによると、MCP設定後は設定ファイルを確認する前に、直接ツールを試すのが推奨されます。
 
 MCPサーバーが正常に動作しているか確認：
 
 ```
 Kiroのチャットで以下のように入力して確認してください：
 
-AWS Documentation MCPが正常に動作しているか確認してください。
-利用可能なツールを教えてください。
+AWS S3について教えてください。
 ```
 
-期待される応答：
-```
-AWS Documentation MCPが正常に動作しています。
+MCPが正常に動作していれば、AWS Documentation MCPを使用してS3の情報を取得します。
 
-利用可能なツール：
-- read_documentation: AWSドキュメントページの読み込み
-- search_documentation: AWSドキュメントの検索（グローバルのみ）
-- recommend: コンテンツ推奨（グローバルのみ）
-- get_available_services: 利用可能サービス一覧（中国のみ）
-```
+**利用可能なツール**:
+- `read_documentation`: AWSドキュメントページの読み込み
+- `search_documentation`: AWSドキュメントの検索（グローバルのみ）
+- `recommend`: コンテンツ推奨（グローバルのみ）
+- `get_available_services`: 利用可能サービス一覧（中国のみ）
+
+> 📖 **詳細**: MCPの完全な設定ガイドは[機能リファレンス](../features/mcp-configuration.md)を参照してください
 
 ## ステップ4: 基本的な使用方法
 
